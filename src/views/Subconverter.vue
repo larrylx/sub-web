@@ -187,7 +187,7 @@ const tgBotLink = process.env.VUE_APP_BOT_LINK
 export default {
   data() {
     return {
-      backendVersion: "",
+      backendVersion: "0.8.1",
       advanced: "2",
 
       // 是否为 PC 端
@@ -210,8 +210,21 @@ export default {
           ClashR: "clashr",
           Surge2: "surge&ver=2",
         },
-        backendOptions: [{ value: "http://127.0.0.1:25500/sub?" }],
+        custombackend: {
+          "小林さんのYYZ（四核甲骨文ARM）": "https://subconverter.kbyshiyori.com/sub?"
+        },
+        backendOptions: [{ value: "https://subconverter.kbyshiyori.com/sub?" }],
         remoteConfig: [
+          {
+            label: "小林さんの",
+            options: [
+              {
+                label: "海外専用",
+                value:
+                  "https://raw.githubusercontent.com/larrylx/sub-ini/main/rules/oversea.ini"
+              }
+            ]
+          },
           {
             label: "universal",
             options: [
@@ -296,7 +309,7 @@ export default {
         nodeList: false,
         extraset: false,
         sort: false,
-        udp: false,
+        udp: true,
         tfo: false,
         scv: true,
         fdn: false,
